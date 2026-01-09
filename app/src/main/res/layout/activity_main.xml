@@ -32,47 +32,150 @@
         android:dividerHeight="30dp" />
 
     <LinearLayout
+        android:layout_below="@+id/createbtn"
         android:id="@+id/botttombar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
+        android:background="#ffffff"
         android:orientation="horizontal"
-        android:weightSum="5">
+        android:weightSum="5"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:id="@+id/homebtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_click"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:focusable="true"
+            android:clickable="true"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/homeicon"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:gravity="center"
+                />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shortsbtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_click"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:clickable="true"
+            android:focusable="true"
+
+
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:src="@drawable/reelsicon"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shorts"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:gravity="center"
+                />
+
+
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#5D3FD3"
-            android:orientation="vertical"></LinearLayout>
+            android:background="@drawable/white_click"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:clickable="true"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plusicon"
+                />
+
+
+
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/newsbtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#BF40BF"
-            android:orientation="vertical"></LinearLayout>
+            android:background="@drawable/white_click"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:clickable="true"
+            android:focusable="true"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:src="@drawable/newsicon"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="News"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/profilebtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#CD5C5C"
-            android:orientation="vertical"></LinearLayout>
+            android:background="@drawable/white_click"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:src="@drawable/profileicon"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:gravity="center"
+                />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#F5276C"
-            android:orientation="vertical"></LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#F54927"
-            android:orientation="vertical"></LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
