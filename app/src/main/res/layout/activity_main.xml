@@ -32,15 +32,15 @@
         android:dividerHeight="30dp" />
 
     <LinearLayout
-        android:layout_below="@+id/createbtn"
         android:id="@+id/botttombar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/createbtn"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         android:orientation="horizontal"
-        android:weightSum="5"
-        android:padding="2dp">
+        android:padding="2dp"
+        android:weightSum="5">
 
         <LinearLayout
             android:id="@+id/homebtn"
@@ -48,28 +48,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/white_click"
-            android:orientation="vertical"
-            android:weightSum="2"
-            android:focusable="true"
             android:clickable="true"
-            >
+            android:focusable="true"
+            android:orientation="vertical"
+            android:weightSum="2">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/homeicon"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:src="@drawable/homeicon" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Home"
                 android:layout_weight="1"
-                android:textColor="#000000"
                 android:gravity="center"
-                />
-
-
-
-
+                android:text="Home"
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,31 +74,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/white_click"
-            android:orientation="vertical"
-            android:weightSum="2"
             android:clickable="true"
             android:focusable="true"
+            android:orientation="vertical"
+            android:weightSum="2">
 
-
-            >
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:src="@drawable/reelsicon"
                 android:layout_weight="1"
-                />
+                android:src="@drawable/reelsicon" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shorts"
                 android:layout_weight="1"
-                android:textColor="#000000"
                 android:gravity="center"
-                />
-
-
-
-
+                android:text="Shorts"
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,18 +99,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/white_click"
-            android:orientation="vertical"
-            android:focusable="true"
             android:clickable="true"
-            >
+            android:focusable="true"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/plusicon"
-                />
-
-
-
+                android:src="@drawable/plusicon" />
         </LinearLayout>
 
         <LinearLayout
@@ -130,25 +115,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/white_click"
-            android:orientation="vertical"
-            android:weightSum="2"
             android:clickable="true"
             android:focusable="true"
-            >
+            android:orientation="vertical"
+            android:weightSum="2">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:src="@drawable/newsicon"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:src="@drawable/newsicon" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="News"
                 android:layout_weight="1"
-                android:textColor="#000000"
-                android:gravity="center"/>
-
-
+                android:gravity="center"
+                android:text="News"
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,25 +141,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/white_click"
-            android:orientation="vertical"
-            android:weightSum="2"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:orientation="vertical"
+            android:weightSum="2">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:src="@drawable/profileicon"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:src="@drawable/profileicon" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profile"
                 android:layout_weight="1"
-                android:textColor="#000000"
                 android:gravity="center"
-                />
-
-
+                android:text="Profile"
+                android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
