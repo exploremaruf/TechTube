@@ -2,6 +2,13 @@ package com.maruf.techtube;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,14 +22,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+
+    ListView listview;
+
+    ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+
+    HashMap<String, String> hashMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        listview = findViewById(R.id.listview);
+
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
-        String url = "http://192.168.1.107/apps/video.json";
+        String url = "http://192.168.1.107/apps/techvideo.json";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
@@ -46,10 +64,20 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONArray jsonArray) {
 
                 try {
-                    JSONObject jsonObject = jsonArray.getJSONObject(0);
-                    String title = jsonObject.getString("title");
-                    String video_id = jsonObject.getString("video_id");
-                    Log.d("serverresponse", "" + title + "\n" + "" + video_id);
+                    for (int x = 0; x < jsonArray.length(); x++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(x);
+                        String title = jsonObject.getString("title");
+                        String video_id = jsonObject.getString("video_id");
+                        Log.d("serverresponse", "" + title + "\n" + "" + video_id);
+
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("title", title);
+                        hashMap.put("video_id", video_id);
+                        arrayList.add(hashMap);
+
+                    }
+                    MyAdapter myAdapter = new MyAdapter();
+                    listview.setAdapter(myAdapter);
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -67,6 +95,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
         queue.add(jsonArrayRequest);
+
+    }
+    //**********************************************************************************************
+    //**********************************************************************************************
+    //**********************************************************************************************
+
+    private class MyAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+
+            return arrayList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            LayoutInflater layoutInflater = getLayoutInflater();
+            View myview = layoutInflater.inflate(R.layout.video_item, parent, false);
+
+            ImageView thambnailimage = myview.findViewById(R.id.thambnail);
+            TextView video_title = myview.findViewById(R.id.video_title);
+
+            HashMap<String, String> hashMap = arrayList.get(position);
+            String vtitle = hashMap.get("title");
+            String vimage_id = hashMap.get("video_id");
+
+            video_title.setText(vtitle);
+            Picasso.get().load("http://img.youtube.com/vi/" + vimage_id + "/0.jpg").placeholder(R.drawable.blank_image).into(thambnailimage);
+
+            return myview;
+        }
 
     }
 

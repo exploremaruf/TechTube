@@ -29,7 +29,8 @@
         android:layout_above="@+id/botttombar"
         android:layout_below="@+id/topbar"
         android:divider="@drawable/list_divider"
-        android:dividerHeight="30dp" />
+        android:dividerHeight="30dp"
+        android:scrollbars="none" />
 
     <LinearLayout
         android:id="@+id/botttombar"
