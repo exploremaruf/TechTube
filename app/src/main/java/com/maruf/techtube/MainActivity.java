@@ -1,5 +1,7 @@
 package com.maruf.techtube;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -78,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                     MyAdapter myAdapter = new MyAdapter();
                     listview.setAdapter(myAdapter);
+
+                    listview.setOnItemClickListener((parent, view, position, id) -> {
+                        HashMap<String, String> hashMap = arrayList.get(position);
+                        String videoId = hashMap.get("video_id");
+
+                        PlayerActivity.videoURL = "https://www.youtube.com/watch?v=" + videoId;
+
+                        Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
+
+                        startActivity(intent);
+
+                    });
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
