@@ -1,5 +1,6 @@
 package com.maruf.techtube;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,12 +39,19 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
+    //****************************************************************************************
+    //Class-level Declarations
+
+    LinearLayout homebtn, shortsbtn, addbtn, newsbtn, profilebtn;
+
     ListView listview;
 
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
     HashMap<String, String> hashMap;
 
+    //*********************************************************************************************
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,8 +63,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        //**********************************View initialization*******************************************************
+        homebtn = findViewById(R.id.homebtn);
+        shortsbtn = findViewById(R.id.shortsbtn);
+        addbtn = findViewById(R.id.addbtn);
+        newsbtn = findViewById(R.id.newsbtn);
+        profilebtn = findViewById(R.id.profilebtn);
 
         listview = findViewById(R.id.listview);
+
+        //******************************************************************************************
 
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
@@ -76,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
                         hashMap.put("title", title);
                         hashMap.put("video_id", video_id);
                         arrayList.add(hashMap);
-
                     }
+
                     MyAdapter myAdapter = new MyAdapter();
                     listview.setAdapter(myAdapter);
 
@@ -85,12 +103,10 @@ public class MainActivity extends AppCompatActivity {
                         HashMap<String, String> hashMap = arrayList.get(position);
                         String videoId = hashMap.get("video_id");
 
-                        PlayerActivity.videoURL = "https://www.youtube.com/watch?v=" + videoId;
-
                         Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
+                        intent.putExtra("VIDEO_ID", videoId);
 
                         startActivity(intent);
-
                     });
 
                 } catch (JSONException e) {
@@ -109,6 +125,51 @@ public class MainActivity extends AppCompatActivity {
         });
 
         queue.add(jsonArrayRequest);
+
+        //****************************************************************************************
+        //****************************Navigation bar***********************************************
+        //*****************************************************************************************
+
+        homebtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Feature will be added soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        shortsbtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Feature will be added soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        addbtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Feature will be added soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        newsbtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Feature will be added soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Feature will be added soon", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
     //**********************************************************************************************
